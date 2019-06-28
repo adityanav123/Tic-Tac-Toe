@@ -1,2 +1,2 @@
 # Tic-Tac-Toe
-Game Programming
+Game BOT using Python
