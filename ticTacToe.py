@@ -7,11 +7,9 @@ def spaceIsFree(position):
 def printBoard(board):
 	print('   |  | ')
 	print(' ' + board[1] + ' |' + board[2] + ' | ' + board[3])
-	#print('   |  | ')
 	print('-----------')
 	print('   |  | ')
 	print(' ' + board[4] + ' |' + board[5] + ' | ' + board[6])
-	#print('   |  | ')
 	print('-----------')
 	print(' ' + board[7] + ' |' + board[8] + ' | ' + board[9])
 	print('   |  | ')
@@ -81,6 +79,7 @@ def main():
 	while not(isBoardFull(board)):
 		if not(isWinner(board, 'O')): # Computer - 0 , User - X
 			playerMove()
+			print('\033c') # clears the terminal 
 			printBoard(board)
 		else: 
 			print('Computer WON!.')
@@ -91,14 +90,16 @@ def main():
 				print('Game Tied!.')
 			else: 
 				insertLetter('O', move)
-				print('Computer Played at: ', move)
+				print('\033c') # clears the terminal
 				printBoard(board)
+				print('Computer Played at: ', move)
 		else: 
 			print('You WON!.')
 			break
 
-	if isBoardFull(board):
+	if isBoardFull(board) and move != 0:
+		print('\033c')
 		print('Game Tied!')
+		
 
-
-main()
+main() # start the game. 
